@@ -1,13 +1,10 @@
 (function(exports) {
-  function Game(board) {
+  function Game(board, player1, player2) {
     this.board = board;
+    this.player1 = player1;
+    this.player2 = player2;
   };
-  Game.prototype.showBoard = function() {
-    return this.board;
-  };
-  Game.prototype.play1 = function() {
 
-  };
 
   exports.Game = Game;
 })(this);
