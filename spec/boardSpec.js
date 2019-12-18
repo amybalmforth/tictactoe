@@ -94,4 +94,55 @@ describe('Board', function() {
     });
   });
 
+  describe('a vertical win', function() {
+    it('knows if a vertical win was made for X on first col', function() {
+      board.setSquare(0, 0, 'X');
+      board.setSquare(0, 1, 'O');
+      board.setSquare(1, 0, 'X');
+      board.setSquare(1, 1, 'O');
+      board.setSquare(2, 0, 'X');
+      expect(board.isVerticalWin()).toEqual(true);
+    });
+    it('knows if a vertical win was made for O on first col', function() {
+      board.setSquare(0, 0, 'O');
+      board.setSquare(0, 1, 'X');
+      board.setSquare(1, 0, 'O');
+      board.setSquare(1, 1, 'X');
+      board.setSquare(2, 0, 'O');
+      expect(board.isVerticalWin()).toEqual(true);
+    });
+    it('knows if a vertical win was made for X on second col', function() {
+      board.setSquare(0, 1, 'X');
+      board.setSquare(0, 0, 'O');
+      board.setSquare(1, 1, 'X');
+      board.setSquare(1, 0, 'O');
+      board.setSquare(2, 1, 'X');
+      expect(board.isVerticalWin()).toEqual(true);
+    });
+    it('knows if a vertical win was made for O on second col', function() {
+      board.setSquare(0, 1, 'O');
+      board.setSquare(0, 0, 'X');
+      board.setSquare(1, 1, 'O');
+      board.setSquare(1, 0, 'X');
+      board.setSquare(2, 1, 'O');
+      expect(board.isVerticalWin()).toEqual(true);
+    });
+    it('knows if a vertical win was made for X on third col', function() {
+      board.setSquare(0, 2, 'X');
+      board.setSquare(1, 1, 'O');
+      board.setSquare(1, 2, 'X');
+      board.setSquare(2, 1, 'O');
+      board.setSquare(2, 2, 'X');
+      expect(board.isVerticalWin()).toEqual(true);
+    });
+    it('knows if a vertical win was made for O on third col', function() {
+      board.setSquare(0, 2, 'O');
+      board.setSquare(1, 1, 'X');
+      board.setSquare(1, 2, 'O');
+      board.setSquare(2, 1, 'X');
+      board.setSquare(2, 2, 'O');
+      expect(board.isVerticalWin()).toEqual(true);
+    });
+  });
+
 });
