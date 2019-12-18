@@ -43,4 +43,55 @@ describe('Board', function() {
     });
   });
 
+  describe('a horizontal win', function() {
+    it('knows if a horizontal win was made for X on top', function() {
+      board.setSquare(0, 0, 'X');
+      board.setSquare(1, 0, 'O');
+      board.setSquare(0, 1, 'X');
+      board.setSquare(1, 1, 'O');
+      board.setSquare(0, 2, 'X');
+      expect(board.isHorizontalWin()).toEqual(true);
+    });
+    it('knows if a horizontal win was made for O on top', function() {
+      board.setSquare(0, 0, 'O');
+      board.setSquare(1, 0, 'X');
+      board.setSquare(0, 1, 'O');
+      board.setSquare(1, 1, 'X');
+      board.setSquare(0, 2, 'O');
+      expect(board.isHorizontalWin()).toEqual(true);
+    });
+    it('knows if a horizontal win was made for X in middle', function() {
+      board.setSquare(1, 0, 'X');
+      board.setSquare(2, 0, 'O');
+      board.setSquare(1, 1, 'X');
+      board.setSquare(2, 1, 'O');
+      board.setSquare(1, 2, 'X');
+      expect(board.isHorizontalWin()).toEqual(true);
+    });
+    it('knows if a horizontal win was made for O in middle', function() {
+      board.setSquare(1, 0, 'O');
+      board.setSquare(2, 0, 'X');
+      board.setSquare(1, 1, 'O');
+      board.setSquare(2, 1, 'X');
+      board.setSquare(1, 2, 'O');
+      expect(board.isHorizontalWin()).toEqual(true);
+    });
+    it('knows if a horizontal win was made for X on bottom', function() {
+      board.setSquare(2, 0, 'X');
+      board.setSquare(1, 0, 'O');
+      board.setSquare(2, 1, 'X');
+      board.setSquare(1, 1, 'O');
+      board.setSquare(2, 2, 'X');
+      expect(board.isHorizontalWin()).toEqual(true);
+    });
+    it('knows if a horizontal win was made for O on bottom', function() {
+      board.setSquare(2, 0, 'O');
+      board.setSquare(1, 0, 'X');
+      board.setSquare(2, 1, 'O');
+      board.setSquare(1, 1, 'X');
+      board.setSquare(2, 2, 'O');
+      expect(board.isHorizontalWin()).toEqual(true);
+    });
+  });
+
 });

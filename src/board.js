@@ -23,6 +23,20 @@
         return true;
       };
   };
+  Board.prototype.isHorizontalWin = function() {
+    var firstGrid = this.grid[0];
+    var secondGrid = this.grid[1];
+    var thirdGrid = this.grid[2];
+    function isX(el, ind, arr) {
+      return el === 'X';
+    };
+    function isO(el, ind, arr) {
+      return el === 'O';
+    };
+    if (firstGrid.every(isX) || secondGrid.every(isX) || thirdGrid.every(isX) || firstGrid.every(isO) || secondGrid.every(isO) || thirdGrid.every(isO)) {
+      return true;
+    };
+  };
 
   exports.Board = Board;
 })(this);
