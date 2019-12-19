@@ -14,7 +14,11 @@
       return 'Square already taken';
     };
     this.grid[x][y] = value;
+    game.showBoard()
     game.switchTurns();
+    if (this.gameOver() === true) {
+      game.getResult();
+    };
   };
   Board.prototype.gameOver = function() {
     if (this.isHorizontalWin()) {
@@ -31,26 +35,25 @@
     };
   };
   Board.prototype.isDraw = function() {
-    // flatten to one array
     var totalGrid = [].concat.apply([], this.grid);
-    var count = {};
-    totalGrid.forEach(x => count[x] = (count[x] || 0) + 1);
-    // returns an object x:#
-    total = 0;
-    for (var property in count) {
-      total += count[property];
+    var xo = ['X', 'O']
+    var counter = 0;
+    for (var i = 0; i < totalGrid.length; i++) {
+      for (var z = 0; z < xo.length; z++) {
+        if (xo[z] === totalGrid[i]) {
+          counter++;
+        };
+      };
     };
-    // total amount of x's and o's
-    if (total === 9) {
+    if (counter === 9) {
       return true;
     };
   };
   Board.prototype.isHorizontalWin = function() {
-    // separate the arrays
     var firstGrid = this.grid[0];
     var secondGrid = this.grid[1];
     var thirdGrid = this.grid[2];
-    // check for x's and o's
+
     function isX(el, ind, arr) {
       return el === 'X';
     };
@@ -58,7 +61,6 @@
     function isO(el, ind, arr) {
       return el === 'O';
     };
-    // check each array is all x's or o's
     if (firstGrid.every(isX) || secondGrid.every(isX) || thirdGrid.every(isX) || firstGrid.every(isO) || secondGrid.every(isO) || thirdGrid.every(isO)) {
       return true;
     };
