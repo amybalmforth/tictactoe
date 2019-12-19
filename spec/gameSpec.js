@@ -41,4 +41,37 @@ describe('Game', function() {
     });
   });
 
+  describe('game result', function() {
+    it('can confirm was a draw', function() {
+      board.setSquare(0, 0, 'X');
+      board.setSquare(0, 1, 'O');
+      board.setSquare(0, 2, 'O');
+      board.setSquare(1, 0, 'O');
+      board.setSquare(1, 1, 'X');
+      board.setSquare(1, 2, 'X');
+      board.setSquare(2, 0, 'X');
+      board.setSquare(2, 1, 'X');
+      board.setSquare(2, 2, 'O');
+      expect(game.getResult()).toEqual('It is a draw!');
+    });
+    it('can confirm if player 1 X won', function() {
+      board.setSquare(1, 0, 'X');
+      board.setSquare(2, 0, 'O');
+      board.setSquare(1, 1, 'X');
+      board.setSquare(2, 1, 'O');
+      board.setSquare(1, 2, 'X');
+      expect(game.getResult()).toEqual('X wins!');
+    });
+    it('can confirm if player 2 O won', function() {
+      player1.piece = 'O';
+      player2.piece = 'X';
+      board.setSquare(1, 0, 'O');
+      board.setSquare(2, 0, 'X');
+      board.setSquare(1, 1, 'O');
+      board.setSquare(2, 1, 'X');
+      board.setSquare(1, 2, 'O');
+      expect(game.getResult()).toEqual('O wins!');
+    });
+  });
+
 });
