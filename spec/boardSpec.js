@@ -1,3 +1,5 @@
+
+
 describe('Board', function() {
 
   beforeEach(function() {
@@ -216,6 +218,13 @@ describe('Board', function() {
       board.setSquare(2, 1, 'X');
       board.setSquare(2, 2, 'O');
       expect(board.gameOver()).toEqual(true);
+    });
+  });
+
+  describe('cannot put a mark on occupied square', function() {
+    it('cannot put an O in top left square if X already there', function() {
+      board.setSquare(0, 0, 'X');
+      expect(board.setSquare(0, 0, 'O')).toEqual('Square already taken');
     });
   });
 

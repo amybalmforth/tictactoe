@@ -1,0 +1,31 @@
+{
+  "name": "tictactoe",
+  "version": "1.0.0",
+  "description": "tictactoe",
+  "main": "src/game.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jasmine-node spec",
+    "coverage": "istanbul cover jasmine-node spec",
+    "show-coverage": "open coverage/lcov-report/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amybalmforth/tictactoe.git"
+  },
+  "keywords": [
+    "tictactoe"
+  ],
+  "author": "amybalmforth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amybalmforth/tictactoe/issues"
+  },
+  "homepage": "https://github.com/amybalmforth/tictactoe#readme",
+  "dependencies": {
+    "istanbul": "^0.4.5",
+    "jasmine-node": "^3.0.0"
+  }
+}

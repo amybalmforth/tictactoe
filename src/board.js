@@ -10,6 +10,9 @@
     return this.grid[x][y];
   };
   Board.prototype.setSquare = function(x, y, value) {
+    if (this.grid[x][y] === 'X' || this.grid[x][y] === 'O') {
+      return 'Square already taken';
+    };
     this.grid[x][y] = value;
   };
   Board.prototype.gameOver = function() {
