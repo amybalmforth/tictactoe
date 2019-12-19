@@ -145,4 +145,78 @@ describe('Board', function() {
     });
   });
 
+  describe('a diagonal win', function() {
+    it('knows if a diagonal win was made for X l-r', function() {
+      board.setSquare(0, 0, 'X');
+      board.setSquare(1, 0, 'O');
+      board.setSquare(1, 1, 'X');
+      board.setSquare(2, 0, 'O');
+      board.setSquare(2, 2, 'X');
+      expect(board.isDiagonalWin()).toEqual(true);
+    });
+    it('knows if a diagonal win was made for O l-r', function() {
+      board.setSquare(0, 0, 'O');
+      board.setSquare(1, 0, 'X');
+      board.setSquare(1, 1, 'O');
+      board.setSquare(2, 0, 'X');
+      board.setSquare(2, 2, 'O');
+      expect(board.isDiagonalWin()).toEqual(true);
+    });
+    it('knows if a diagonal win was made for X r-l', function() {
+      board.setSquare(2, 0, 'X');
+      board.setSquare(1, 0, 'O');
+      board.setSquare(1, 1, 'X');
+      board.setSquare(0, 0, 'O');
+      board.setSquare(0, 2, 'X');
+      expect(board.isDiagonalWin()).toEqual(true);
+    });
+    it('knows if a diagonal win was made for O r-l', function() {
+      board.setSquare(2, 0, 'O');
+      board.setSquare(1, 0, 'X');
+      board.setSquare(1, 1, 'O');
+      board.setSquare(0, 0, 'X');
+      board.setSquare(0, 2, 'O');
+      expect(board.isDiagonalWin()).toEqual(true);
+    });
+  });
+
+  describe('returning result of game', function() {
+    it('can check if horizontal win method returns true', function() {
+      board.setSquare(0, 0, 'X');
+      board.setSquare(1, 0, 'O');
+      board.setSquare(0, 1, 'X');
+      board.setSquare(1, 1, 'O');
+      board.setSquare(0, 2, 'X');
+      expect(board.gameOver()).toEqual(true);
+    });
+    it('can check if vertical win method returns true', function() {
+      board.setSquare(0, 0, 'X');
+      board.setSquare(0, 1, 'O');
+      board.setSquare(1, 0, 'X');
+      board.setSquare(1, 1, 'O');
+      board.setSquare(2, 0, 'X');
+      expect(board.gameOver()).toEqual(true);
+    });
+    it('can check if diagonal win method returns true', function() {
+      board.setSquare(0, 0, 'X');
+      board.setSquare(1, 0, 'O');
+      board.setSquare(1, 1, 'X');
+      board.setSquare(2, 0, 'O');
+      board.setSquare(2, 2, 'X');
+      expect(board.gameOver()).toEqual(true);
+    });
+    it('can check if draw method returns true', function() {
+      board.setSquare(0, 0, 'X');
+      board.setSquare(0, 1, 'O');
+      board.setSquare(0, 2, 'O');
+      board.setSquare(1, 0, 'O');
+      board.setSquare(1, 1, 'X');
+      board.setSquare(1, 2, 'X');
+      board.setSquare(2, 0, 'X');
+      board.setSquare(2, 1, 'X');
+      board.setSquare(2, 2, 'O');
+      expect(board.gameOver()).toEqual(true);
+    });
+  });
+
 });

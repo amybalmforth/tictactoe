@@ -12,6 +12,20 @@
   Board.prototype.setSquare = function(x, y, value) {
     this.grid[x][y] = value;
   };
+  Board.prototype.gameOver = function() {
+    if (this.isHorizontalWin()) {
+      return true;
+    };
+    if (this.isVerticalWin()) {
+      return true;
+    };
+    if (this.isDiagonalWin()) {
+      return true;
+    };
+    if (this.isDraw()) {
+      return true;
+    };
+  };
   Board.prototype.isDraw = function() {
     // flatten to one array
     var totalGrid = [].concat.apply([], this.grid);
@@ -62,6 +76,14 @@
       };
     };
     if (winX() === true || winO() === true) {
+      return true;
+    };
+  };
+  Board.prototype.isDiagonalWin = function() {
+    var d1 = this.grid[0][0] + this.grid[1][1] + this.grid[2][2]
+    var d2 = this.grid[2][0] + this.grid[1][1] + this.grid[0][2]
+
+    if (d1 === 'XXX' || d2 === 'XXX' || d1 === 'OOO' || d2 === 'OOO') {
       return true;
     };
   };
