@@ -14,6 +14,7 @@
       return 'Square already taken';
     };
     this.grid[x][y] = value;
+    game.switchTurns();
   };
   Board.prototype.gameOver = function() {
     if (this.isHorizontalWin()) {

@@ -26,4 +26,19 @@ describe('Game', function() {
     });
   });
 
+  describe('current player', function() {
+    it('current player starts as player 1', function() {
+      expect(game.currentPlayer).toBeInstanceOf(Player);
+    });
+    it('switches to player 2 after player 1 goes', function() {
+      board.setSquare(0, 0, 'X');
+      expect(game.currentPlayer).toEqual(game.player2);
+    });
+    it('switches to player 2 after player 1 goes', function() {
+      board.setSquare(0, 0, 'X');
+      board.setSquare(0, 1, 'O');
+      expect(game.currentPlayer).toEqual(game.player1);
+    });
+  });
+
 });
