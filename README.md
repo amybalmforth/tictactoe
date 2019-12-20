@@ -6,14 +6,14 @@ I have split the program into the following objects and methods:
 
 *Game object*
 
-- Initialise with 1 Board object and 2 Player objects
-- currentPlayer property and otherPlayer property
+- Initialise a Game object with 1 Board object and 2 Player objects
+- Has currentPlayer property and otherPlayer property
 - switchTurns method switches the current player after each move
 - getResult method returns the result of the game: either a draw or confirms which player won
 
 *Player object*
 
-- Initialised with a Piece property: either 'X' or 'O'
+- Initialise a Player object with a Piece property: either 'X' or 'O'
 
 *Board object*
 
@@ -43,9 +43,16 @@ Build the business logic for a game of tic tac toe. It should be easy to impleme
 
 1. git clone
 2. run "npm install"
-3. run "npm run coverage" -- to see test coverage
+3. run "npm run coverage" -- to see test coverage (Istanbul)
 4. run "open SpecRunner.html" -- to run Jasmine tests
-5. In JS console:
+5. run ESLint:
+  - ./node_modules/.bin/eslint spec/gameSpec.js
+  - ./node_modules/.bin/eslint spec/playerSpec.js
+  - ./node_modules/.bin/eslint spec/boardSpec.js
+  - ./node_modules/.bin/eslint src/game.js
+  - ./node_modules/.bin/eslint src/player.js
+  - ./node_modules/.bin/eslint src/board.js
+6. In JS console:
 
 ```
 game = new Game(board = new Board, player1 = new Player(piece = 'X'), player2 = new Player(piece = 'O'));

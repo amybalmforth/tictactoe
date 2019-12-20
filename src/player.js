@@ -1,8 +1,7 @@
-(function(exports) {
-  function Player(piece) {
-    this.piece = piece;
+(function (exports) {
+  function Player (piece) {
+    this.piece = piece
   };
 
-
-  exports.Player = Player;
-})(this);
+  exports.Player = Player
+})(this)
